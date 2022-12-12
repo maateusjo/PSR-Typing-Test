@@ -1,247 +1,92 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+
+# PSR Typing Test
+
+Desenvolvido por **Mateus Araujo e Rafael Mendes**, no âmbito da disciplina de **Programação de Sistemas Robóticos (PSR)**, este trabalho tem como objetivo a criação de um **Teste de escrita Caracter a Caracter.**
+
+## Informações
+Observando o código, inicialmente foram definidos todos os parâmetros que seriam pedidos ao utilizado para o funcionamento do programa através do módulo agrparse.
+
+* -utm **ou** --use_time_mode *(Obrigatório)*
+* -mv **ou** --max_value *(Opcional)* 
+
+De seguida foi criado o Named Tuple que foi utilizado para armazenar todos os caracteres pedidos, os inputs do utilizandor e o tempo de resposta.
+
+Mais abaixo todas as variáveis que são utilizadas para armazenar os tempos de inicio e fim de teste, número de inputs, número de inputs corretos, percentagem de acerto e as listas para armazenas os tempos de inputs das teclas do utilizador.
+
+No final do teste todas as estatísticas e médias foram calculadas e armazenadas num dicionário denominado  ***test_report*** que é apresentado sempre ao final do teste através do package **prettyprint**. 
+
+### Funcionamento
+
+Na execução do programa, independentemente do modo, será pedido ao utilizador para que clique em **qualquer tecla para iniciar o teste**, ou na **tecla Espaço para cancelar o teste.**
+
+Posteriormente, o teste será iniciado e o utilizador deve tentar introduzir os caracteres pedidos o mais rapidamente possível.
+
+No final do mesmo, seja por tempo ou número de inputs, será apresentado um *report* com as informações relevantes e também cada input que introduziu.
+
+### Cancelamento do teste no inicio ou durante a execução do mesmo
+ 
+ Caso seja pressionada a tecla Espaço antes do inicio do teste o utilizador receberá uma mensagem de cancelamento e o *report* não será apresentado.
+
+ Se a telca Espaço for pressionada durante o teste, este terminará e será apresentado o *report* com as informações que foram possiveis ser adquiridas.
 
 
+## Inicialização
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+Para o teste e boa utilização do código desenvolvido, o utilizador deve seguir os passos seguintes para obter uma cópia local do repositório e execução do mesmo.
 
+### Pré-requesitos
 
+Para execução do código é necessário ter alguns requesitos, que estão contidos na lista seguinte juntamente com os comandos necessários para instalação:
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
-
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
-</div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+* **Colorama:**
+Utilizado para produzir um print no terminal com texto colorido e personalizado: 
   ```sh
-  npm install npm@latest -g
+  pip install colorama
+  ```
+* **ReadChar:**
+Utilizado para detetar as teclas pressionadas pelo utilizado:
+   ```sh
+  pip install readchar
   ```
 
-### Installation
+### Obtenção do repositório
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+Clonar o repositório:
    ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   git clone https://github.com/maateusjo/PSR-Typing-Test
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Execução do código - Considerações
+Na execução do programa, será necessário realizar a inicialização obrigatória do parâmetro **--use_time_mode** fornecendo um valor correspondente aos segundos que o teste durará, **Modo Temporizador**. 
 
+Caso seja adicionado o parâmetro **--max_value**, o teste entrará no **Modo de número de Inputs** 
 
+Estes 2 paramêtros serão essenciais para a escolha do **Modo de Teste**
 
-<!-- USAGE EXAMPLES -->
-## Usage
+1. **Modo Temporizador:** Modo em que o utilizador define os segundos em que o teste irá decorrer (Qualquer um dos comandos abaixo funcionam):
+   ```py
+   ./main.py -utm <tempo em segundos>
+   ```
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+   ```
+   ./main.py --use_time_mode <tempo em segundos>
+   ```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+2. **Modo número de Inputs:** Modo em que o utilizador define o número de Inputs que terá de fornecer, quando este limite for atingido o teste termina (Qualquer um dos comandos abaixo funcionam):
+   ```py
+   ./main.py -utm <numero de inputs> -mv
+   ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+   ```
+   ./main.py --use_time_mode <numero de inputs> --max_value
+   ```
 
+Se nenhum dos parâmetros for fornecido, o programa pedirá ao utilizador que forneça os mesmos.
 
+## Contactos
 
-<!-- ROADMAP -->
-## Roadmap
+* Mateus Araújo - mateus.araujo@ua.pt
+* Rafael Mendes - mendes.rafael@ua.pt
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+Link do Projeto: https://github.com/maateusjo/PSR-Typing-Test
