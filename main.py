@@ -104,7 +104,6 @@ def main():
             inputs.append(i)
             
         test_end = time.time()
-        end_date = time.ctime()
     
     #Time limit GAME MODE
     else:
@@ -152,18 +151,24 @@ def main():
                 type_miss_average_duration.append(type_miss - type_start)
 
             test_end = time.time()
-            end_date = time.ctime()
+
 
             i = Input(key_asked, key_received, type_end - type_start)
             inputs.append(i)
 
+    end_date = time.ctime()
     #Test finish message
     print(Style.BRIGHT + Fore.MAGENTA + 'Test finished!' + Fore.RESET + Style.RESET_ALL)
     
     #Calculations
     test_duration = test_end - test_start
     
-    if number_of_hits == 0:
+    if number_of_hits == 0 and sum(type_miss_average_duration) == 0:
+        accuracy = 0
+        average_hit_duration = 0
+        average_miss_duration = 0
+
+    elif number_of_hits == 0:
         accuracy = 0
         average_hit_duration = 0
         average_miss_duration = sum(type_miss_average_duration) / len(type_miss_average_duration)
